@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="/public/css/tailwind.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<%- include ('includes/header.ejs') %>
+    <div class="flex h-screen flex-col justify-center items-center">
+        <div>
+            <h1 class="text-5xl md:text-7xl font-bold text-red-500 text-center overflow-clip uppercase">A fatal error has occurred</h1>
+            <p class="text-red-500 mt-2">With status <%= status %></p>
+                <div class="bg-gray-900 mt-4 p-4 text-white break-words">
+                    <h1><%= errmsg %></h1>
+                </div>
+        </div>
+        </div>    
+    </div>
+</body>
+<script src="/public/js/ext.js"></script>
+</html>

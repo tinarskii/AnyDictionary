@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meaning of "<%= word %>"</title>
+    <link rel="stylesheet" href="/public/css/tailwind.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<%- include ('includes/header.ejs') %>
+    <div class="flex h-screen flex-col justify-center items-center">
+        <div class="relative">
+                <h1 class="text-5xl md:text-7xl font-bold text-pink-300 text-center overflow-clip"><%= word %></h1>
+                <div class="container m-auto break-words mt-2">
+                    <a href="/a?username=<%= bywho %>"><p class="text-blue-500 text-center truncate">By: <%= bywho %></p><br/></a>
+                    <p class="mt-none text-white truncate"><a href="/api/v1/search/<%= word %>?p=<%= pg_now %>/example"><%= meaning %></a></p><br/>
+                    <div class="bg-gray-900 p-4 text-white break-words">
+                        <h1 class="truncate"><a href="/api/v1/search/<%= word %>/<%= pg_now %>/example"><%= example %></a></h1>
+                    </div>
+        
+                    <%  if(pg_next == pg_now) { %> 
+                        <button disabled="disabled" class="transform active:scale-90 absolute right-0 mt-2 bg-pink-300 rounded-xl text-sm text-black font-bold uppercase p-4 transition duration-300 ease-in-out disabled:opacity-50" type="submit">NEXT ➡️</button>
+                    <% } else { %>
+                        <button class="transform active:scale-90 absolute right-0 mt-2 bg-pink-300 hover:bg-pink-500 rounded-xl text-sm text-black hover:text-white font-bold uppercase p-4 transition duration-300 ease-in-out" type="submit"><a href='<%= url %>&page=<%= pg_next %>'>NEXT ➡️</a></button>
+                    <% } %>
+                    <% if (pg_prev == pg_now) { %>
+                    <button disabled="disabled" class="transform active:scale-90 transform active:scale-90 absolute left-0 mt-2 bg-pink-300 rounded-xl text-sm text-black font-bold uppercase p-4 transition duration-300 ease-in-out disabled:opacity-50" type="submit">⬅️ PREVIOUS</button>  
+                    <% } else { %>
+                    <button class="transform active:scale-90 absolute left-0 mt-2 bg-pink-300 hover:bg-pink-500 rounded-xl text-sm text-black hover:text-white font-bold uppercase p-4 transition duration-300 ease-in-out " type="submit"><a href='<%= url %>&page=<%= pg_prev %>'>⬅️ PREVIOUS</a></button>  
+                    <% } %>
+        </div>    
+    </div>
+    </div>
+</body>
+<script src="/public/js/ext.js"></script>
+</html>

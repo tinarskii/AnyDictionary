@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnyDictionary</title>
+    <link rel="stylesheet" href="/public/css/tailwind.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<%- include ('includes/header.ejs') %>
+    <span>
+		<form action="/addAvatar" method="POST" enctype="multipart/form-data">
+            <div class="form-control">
+				<input type="file" name="avatar" required/>
+                <button class="transform active:scale-90 mt-2 rounded-l-none btn btn-primary" type="submit">Submit</button> 
+			</div>
+		</form>
+    </span>
+</body>
+<script src="/public/js/ext.js"></script>
+</html>

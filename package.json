@@ -1,0 +1,32 @@
+{
+	"name": "your-dictionary",
+	"version": "1.0.0",
+	"description": "Make your own new words!",
+	"main": "server.js",
+	"scripts": {
+		"test": "node server.js",
+		"start": "node server.js"
+	},
+	"engines": {
+		"node": ">=16.0.0"
+	},
+	"author": "Tinnaphat Somsang",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"bcrypt": "^5.0.1",
+		"cookie-session": "^1.4.0",
+		"ejs": "^3.1.6",
+		"express": "^4.17.1",
+		"jimp": "^0.16.1",
+		"mmmagic": "^0.5.3",
+		"multer": "^1.4.3",
+		"mysql2": "^2.3.0",
+		"node-localstorage": "^2.2.1",
+		"prettier": "^2.3.2"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.3.5",
+		"postcss": "^8.3.8",
+		"tailwindcss": "^2.2.15"
+	}
+}

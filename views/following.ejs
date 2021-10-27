@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Following</title>
+    <link rel="stylesheet" href="/public/css/tailwind.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+	<%- include ('includes/header.ejs') %>
+    <div class="flex h-screen flex-col justify-center items-center">
+        <div>
+			<h1 class="text-white">Following : <%= Array.isArray(following) ? following.length : 0 %> users</h1>
+        <div class="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-4 md:space-y-0 space-y-2">
+			<% if (!Array.isArray(following)) { %>
+				<div class="p-6 text-blue-500 text-center mb-none truncate shadow-lg col-span-2 rounded-md bg-gray-900">
+					<%- following %>
+				</div>
+            <% } else { %>
+            <% for (var i = 0; i < following.length; i++) { %> 
+            <% let links = `/a?username=${following[i]}` %>
+			<a href="<%= links %>">
+			<div class="p-6 text-blue-500 text-center mb-none truncate shadow-lg rounded-md bg-gray-900">
+				<%- following[i] %>
+			</div>
+			</a>
+            <% } %>
+			<% } %>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+<script src="/public/js/ext.js"></script>
+</html>

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Sarabun&display=swap');
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	overflow: scroll;
+	background-color: #302f3d;
+	animation: fadeIn 0.4s ease-in-out;
+}
+
+body,
+button,
+textarea,
+select,
+html,
+a,
+button,
+span {
+	font-family: 'Sarabun';
+}
+
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+::-webkit-scrollbar {
+	width: 0px;
+}
+
+.toCenter {
+	font-family: 'Sarabun', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+/*
+#ex:hover {
+  transform: translateX(-30px) scale(1.4);
+  animation: 0.3s ease-in-out;
+}
+
+#docs:hover {
+  transform: translateX(30px) scale(1.4);
+  animation: 0.3s ease-in-out;
+}
+*/
+
+button:not(:hover) {
+	transform: scale(1);
+	animation: 0.3s ease-in-out;
+}
+
+.width-half {
+	width: 50%;
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+div {
+	font-family: 'Sarabun', sans-serif;
+}
+
+.navbar {
+	transition: all 0.4s ease-in-out;
+}

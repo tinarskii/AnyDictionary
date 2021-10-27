@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dracula">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/public/css/tailwind.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <%- include ('includes/header.ejs') %>
+  <div class="flex h-screen justify-center items-center">
+    <div class="max-w-md">
+        <h1 class="text-5xl md:text-7xl text-center font-bold text-pink-300">Login</h1>
+        <div class="container mx-auto">
+    <form action="/loginUser" method="POST">
+            <div class="mt-4">
+                <label class="label">
+                    <label class="text-white">Name</label>
+                  </label> 
+                <input type="text" placeholder="Username" name="name" class="w-full border-2 border-pink-400 rounded-md text-white p-3 focus:ring-2 focus:ring-pink-400 transition duration-200 ease-in-out bg-blue-400 bg-opacity-0 mb-2" require>
+                <label class="label">
+                    <label class="text-white">Password</label>
+                  </label> 
+                <input type="password" placeholder="Password" name="pass" class="w-full border-2 border-pink-400 rounded-md text-white p-3 focus:ring-2 focus:ring-pink-400 transition duration-200 ease-in-out bg-blue-400 bg-opacity-0 mb-2" require>
+                <button class="transform active:scale-90 mt-2 bg-pink-300 hover:bg-pink-500 rounded-xl text-sm text-black hover:text-white font-bold uppercase p-4 transition duration-300 ease-in-out w-full" type="submit">Submit</button> 
+                <p class="mt-2 text-white">Doesn't have an account? <a href="/register">Register</a></p>
+                <% if(success === true) { %>
+                    <div class="bg-green-700 rounded-xl text-green-500 bg-opacity-20 p-3 mt-2">
+                        <div class="flex items-start justify-start space-x-2">
+                            <label class="inline">Successfully login!</label>
+                        </div>
+                      </div>
+    
+                <% } else if (success === false) { %>
+                    <div class="bg-red-700 rounded-xl text-red-500 bg-opacity-20 p-3 mt-2">
+                        <div class="flex items-start justify-start space-x-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 stroke-current inline ">    
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>                      
+                          </svg> 
+                            <label class="inline">Invalid username!</label>
+                        </div>
+                      </div>    
+				<% } else if (error === "noinfo") { %>
+                    <div class="bg-red-700 rounded-xl text-red-500 bg-opacity-20 p-3 mt-2">
+                        <div class="flex items-start justify-start space-x-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="w-6 h-6 stroke-current inline ">    
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"></path>                      
+                          </svg> 
+                            <label class="inline">Please enter username and password!</label>
+                        </div>
+                      </div>    
+                <% } %>
+        </div>
+        </div>
+        </div>
+    </form>
+  </div>
+
+</body>
+<script src="/public/js/ext.js"></script>
+</html>
